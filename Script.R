@@ -178,11 +178,11 @@ getDirectTable <-function(graph, nextSet) {
     columns <- c(sort(columns), "0")
     
     max <- graph$`Номер состояния`[nrow(graph)] + 1
-    directTable <- data.frame(rep("", max + 1), stringsAsFactors = F)
+    directTable <- data.frame(rep("", max), stringsAsFactors = F)
     for (i in 2:length(columns))
-      directTable %<>% cbind(data.frame(rep("", max + 1), stringsAsFactors = F))
+      directTable %<>% cbind(data.frame(rep("", max), stringsAsFactors = F))
     colnames(directTable) <- columns
-    rownames(directTable) <- 0:max
+    rownames(directTable) <- 0:(max-1)
     return(directTable)
   }
   
